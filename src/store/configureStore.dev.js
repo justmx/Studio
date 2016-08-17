@@ -1,7 +1,9 @@
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from '../reducers';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
+// import sagaMonitor from '../../../sagaMonitor'
+//import thunk from 'redux-thunk';
 // single store
 
 const logger = store => next => action => {
@@ -14,9 +16,9 @@ const logger = store => next => action => {
 };
 
 export default function configureStore(initialState) {
-  return createStore(
-    rootReducer,
-    initialState,
-    applyMiddleware(thunk, reduxImmutableStateInvariant(), logger)
-  );
+  const sagaMiddleware = createSagaMiddleware();
+  return {
+      store: createStore(rootReducer, initialState, applyMiddleware(sagaMiddleware, reduxImmutableStateInvariant(), logger)),
+      runSaga: sagaMiddleware.run
+  };
 }

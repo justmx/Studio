@@ -8,6 +8,11 @@ import weddingApi from '../api/mockWeddingApi';
 //   return { type: types.CREATE_COURSE, course };
 //   // in ES6 if right is the sane as left, right can be ignored
 // }
+export function loadError(error) {
+  //debugger;
+  return { type: types.LOAD_ERROR, error};
+  // in ES6 if right is the sane as left, right can be ignored
+}
 
 
 export function loadWeddingSuccess(weddings) {
@@ -16,27 +21,30 @@ export function loadWeddingSuccess(weddings) {
   // in ES6 if right is the sane as left, right can be ignored
 }
 
-// export function updateCoursesSuccess(course) {
-//   return { type: types.UPDATE_COURSES_SUCCESS, course};
-// }
+export function updateWeddingSuccess(wedding) {
+  return { type: types.UPDATE_WEDDING_SUCCESS, wedding};
+}
 //
-// export function createCoursesSuccess(course) {
-//   return { type: types.CREATE_COURSES_SUCCESS, course};
-// }
-
-// this is a thunk and every thunk return a function with dispatch
-export function loadWeddings() {
-  return function(dispatch){
-    // dispatch(beginAjaxCall());
-    return weddingApi.getAllWeddings().then(weddings => {
-      dispatch(loadWeddingSuccess(weddings));
-    }).catch(error => {
-      throw(error);
-    });
-  };
+export function createWeddingSuccess(wedding) {
+  return { type: types.CREATE_WEDDING_SUCCESS, wedding};
 }
 
-// export function saveCourse(course) {
+// this is a thunk and every thunk return a function with dispatch
+// export function loadWeddings() {
+//   return function(dispatch){
+//     // dispatch(beginAjaxCall());
+//     return weddingApi.getAllWeddings().then(weddings => {
+//       dispatch(loadWeddingSuccess(weddings));
+//     }).catch(error => {
+//       throw(error);
+//     });
+//   };
+// }
+export function loadWeddings() {
+  return { type: types.WEDDING_FETCH_REQUESTED };
+}
+
+// export function saveWedding(wedding) {
 //   return function(dispatch, getState){
 //     dispatch(beginAjaxCall());
 //     return courseApi.saveCourse(course).then(savedCourse => {
@@ -48,3 +56,6 @@ export function loadWeddings() {
 //     });
 //   };
 // }
+export function saveBasicWeddingInfo(wedding) {
+  return {type: types.WEDDING_SAVE_REQUESTED, wedding }
+}
