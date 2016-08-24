@@ -3,6 +3,7 @@ import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 import DatePickerInput from '../common/DatePickerInput';
 import RadioButtonInput from '../common/RadioButtonInput';
+//import DatePickerInput2 from '../common/DatePickerInput2';
 
 const WeddingForm = ({wedding, onSave, onChange, saving, errors, onDateChange, weddingDate, radioOptions}) => {
   return (
@@ -66,22 +67,6 @@ WeddingForm.propTypes = {
 };
 
 export default WeddingForm;
-
-// <SelectInput
-//   name="authorId"
-//   label="Author"
-//   value={course.authorId}
-//   onChange={onChange}
-//   defaultOption="Select Author"
-//   options={allAuthors}
-//   error={errors.authorId}/>
-
-// <TextInput
-//   name="weddingDate"
-//   label="Wedding Date"
-//   value={wedding.weddingDate}
-//   onChange={onChange}
-//   error={errors.weddingDate}/>
 
 // <DatePickerInput2
 //   name="weddingDate"

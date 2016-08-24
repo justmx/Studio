@@ -6,9 +6,10 @@ const RadioButtonInput = ({name, label, onChange, error, options, selected}) => 
         <label htmlFor={name}>{label}</label>
         <br/>
         <div className="btn-group">
-        {options.map((option) => {
+        {options.map((option, index) => {
+          let key=option.value + '_' + index;
           return  <label className="radio-inline">
-                    <input type="radio" key={option.value} id={option.value} value={option.value} name="serviceType" onClick={onChange} />  {option.text}
+                    <input type="radio" key={key} id={option.value} value={option.value} name="serviceType" onClick={onChange} />  {option.text}
                   </label>
                 })}
          </div>
