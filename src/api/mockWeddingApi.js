@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import delay from './delay';
 
 // This file mocks a web API by working with the hard-coded data below.
@@ -9,7 +10,7 @@ const weddings = [
     packageType: 'Full Day',
     groomName: "Michael",
     brideName: "Maria",
-    weddingDate: "2016-07-06",
+    weddingDate: "2016-11-06",
     length: "14",
     serviceType: "Photo & Video"
   },
@@ -18,7 +19,7 @@ const weddings = [
     packageType: '10hrs',
     groomName: "Jim",
     brideName: "Rose",
-    weddingDate: "2016-07-06",
+    weddingDate: "2016-07-08",
     length: "10",
     serviceType: "Photo & Video"
   },
@@ -45,7 +46,7 @@ const weddings = [
     packageType: '12hrs',
     groomName: "Fang",
     brideName: "Wendy",
-    weddingDate: "2016-10-06",
+    weddingDate: "2016-04-06",
     length: "12",
     serviceType: "Video"
   }
@@ -61,11 +62,34 @@ const generateId = (weddings) => {
   return '0'+ newId;
 };
 
+const sortByWeddingDate = () => {
+  const _weddings = weddings;
+   return _weddings.sort(function(a,b){
+    let d1= new Date(a.weddingDate);
+    let d2 =new Date(b.weddingDate);
+    return d1 - d2;
+  });
+};
+
 class WeddingApi {
   static getAllWeddings() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], weddings));
+      }, delay);
+    });
+  }
+
+  static sortWeddingDate(flag) {
+    let _weddings = [];
+    if(flag){
+       _weddings = sortByWeddingDate();
+    } else {
+       _weddings = sortByWeddingDate().reverse();
+    }
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Object.assign([], _weddings));
       }, delay);
     });
   }

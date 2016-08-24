@@ -14,6 +14,17 @@ export function loadError(error) {
   // in ES6 if right is the sane as left, right can be ignored
 }
 
+export function sortByWeddingDate(sort_flag) {
+  //debugger;
+  return { type: types.SORT_BY_WEDDING_DATE, sort_flag};
+  // in ES6 if right is the sane as left, right can be ignored
+}
+
+export function sortWeddingDateSuccess(weddings) {
+  //debugger;
+  return { type: types.SORT_WEDDING_DATE_SUCCESS, weddings};
+  // in ES6 if right is the sane as left, right can be ignored
+}
 
 export function loadWeddingSuccess(weddings) {
   //debugger;

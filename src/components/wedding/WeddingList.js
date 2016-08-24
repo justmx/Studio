@@ -1,19 +1,11 @@
 import React, {PropTypes} from 'react';
 import WeddingListRow from './WeddingListRow';
+import WeddingTableHeader from './WeddingTableHeader';
 
-const WeddingList = ({weddings}) => {
+const WeddingList = ({weddings, onChangeID, onChangeWeddingDate}) => {
   return (
     <table className="table">
-      <thead>
-      <tr>
-        <th>CustomerId</th>
-        <th>Wedding Date</th>
-        <th>Groom</th>
-        <th>Bridge</th>
-        <th>Length</th>
-        <th>Service Types</th>
-      </tr>
-      </thead>
+      <WeddingTableHeader changeID={onChangeID} onChangeWeddingDate={onChangeWeddingDate}/>
       <tbody>
       {weddings.map(wedding =>
         <WeddingListRow key={wedding.id} wedding={wedding}/>
@@ -24,7 +16,9 @@ const WeddingList = ({weddings}) => {
 };
 
 WeddingList.propTypes = {
-  weddings: PropTypes.array.isRequired
+  weddings: PropTypes.array.isRequired,
+  onChangeID: PropTypes.func.isRequired,
+  onChangeWeddingDate: PropTypes.func.isRequired
 };
 
 export default WeddingList;

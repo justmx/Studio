@@ -5,6 +5,8 @@ export default function weddingReducer(state = initialState.weddings, action) {
   switch (action.type) {
     case types.LOAD_WEDDING_SUCCESS:
       return action.weddings;
+    case types.SORT_WEDDING_DATE_SUCCESS:
+        return [...action.weddings];
     case types.CREATE_WEDDING_SUCCESS:
         return [
           ...state,
