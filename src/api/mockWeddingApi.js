@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import delay from './delay';
+import _ from 'underscore';
 
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
@@ -35,8 +36,8 @@ const weddings = [
   {
     id: "01004",
     packageType: 'Full Day',
-    groomName: "Michael",
-    brideName: "Maria",
+    groomName: "Tom",
+    brideName: "Hindi",
     weddingDate: "2016-11-06",
     length: "14",
     serviceType: "Photo & Video"
@@ -58,7 +59,9 @@ const weddings = [
 //
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (weddings) => {
-  let newId=parseInt(weddings[weddings.length-1].id) + 1;
+  let _max = _.max(weddings, function(wedding){return wedding.id});
+  let newId=parseInt(_max.id) + 1;
+  console.log(newId);
   return '0'+ newId;
 };
 

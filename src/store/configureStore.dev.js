@@ -18,7 +18,8 @@ const logger = store => next => action => {
 export default function configureStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
   return {
-      store: createStore(rootReducer, initialState, applyMiddleware(sagaMiddleware, reduxImmutableStateInvariant(), logger)),
+      store: createStore(rootReducer, initialState, applyMiddleware(sagaMiddleware, logger)),
       runSaga: sagaMiddleware.run
   };
 }
+//reduxImmutableStateInvariant(),

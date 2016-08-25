@@ -38,13 +38,11 @@ class WeddingPage extends React.Component {
     event.preventDefault();
     const _sort_flag = !this.state.sort_flag;
     this.props.actions.sortByWeddingDate(_sort_flag);
-    console.log('state'+JSON.stringify(this.state));
     this.setState({sort_flag: _sort_flag});
-      console.log('state'+JSON.stringify(this.state));
   }
 
   componentWillReceiveProps(nextProps){
-    if (this.props.weddings[0].id != nextProps.weddings[0].id){
+    if (JSON.stringify(this.props.weddings) !== JSON.stringify(nextProps.weddings) ){
         this.setState({weddings: nextProps.weddings});
     }
   }
