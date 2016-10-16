@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Link, IndexLink } from 'react-router';
 import LoadingDots from './LoadingDots';
 
@@ -14,6 +14,11 @@ const Header = ({loading}) => {
       {loading && <LoadingDots interval={100} dots={20}/>}
     </nav>
   );
+};
+
+
+Header.propTypes = {
+  loading: PropTypes.bool
 };
 
 export default Header;

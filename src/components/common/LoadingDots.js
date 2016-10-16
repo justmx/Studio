@@ -8,7 +8,7 @@ class LoadingDots extends React.Component {
 
   componentDidMount(){
     this.interval= setInterval(() => {
-      var f = this.state.frame + 1;
+      let f = this.state.frame + 1;
       //console.log('componentDidMount called: ' + f);
       this.setState({
         frame: f

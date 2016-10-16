@@ -7,10 +7,12 @@ const RadioButtonInput = ({name, label, onChange, error, options, selected}) => 
         <br/>
         <div className="btn-group">
         {options.map((option, index) => {
-          return  <label className="radio-inline" key={option.text}>
+          return  (
+                  <label className="radio-inline" key={option.text}>
                     <input type="radio" key={option.text} id={option.text} value={option.value} name="serviceType" onClick={onChange} />  {option.text}
                   </label>
-                })}
+                   );
+                 })}
          </div>
            {error && <div className="alert alert-danger">{error}</div>}
     </div>

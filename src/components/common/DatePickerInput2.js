@@ -19,7 +19,7 @@ export class DatePickerInput2 extends React.Component {
 
   componentDidMount() {
     let dp = $('#'+ this.state.key);
-    console.log('hihi'+ dp.attr('id'));
+    //console.log('hihi'+ dp.attr('id'));
     dp.datepicker({
       weekStart: 1,
       todayBtn: true,

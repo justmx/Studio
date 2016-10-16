@@ -59,7 +59,7 @@ const weddings = [
 //
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (weddings) => {
-  let _max = _.max(weddings, function(wedding){return wedding.id});
+  let _max = _.max(weddings, function(wedding){return wedding.id;});
   let newId=parseInt(_max.id) + 1;
   console.log(newId);
   return '0'+ newId;

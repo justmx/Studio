@@ -9,7 +9,7 @@ import weddingApi from '../api/mockWeddingApi';
 
 function* fetchWeddings() {
  try {
-   console.log('hihi');
+//   console.log('hihi');
    yield put (ajaxActions.beginAjaxCall());
    const wedding_data =  yield call(weddingApi.getAllWeddings);
    yield put (actions.loadWeddingSuccess(wedding_data));
@@ -28,7 +28,7 @@ function* watchFetchWeddings() {
 
 function* sortWeddingDate(action) {
  try {
-   console.log('hihi');
+  // console.log('hihi');
    const {sort_flag} = action;
    yield put (ajaxActions.beginAjaxCall());
    const wedding_data =  yield call(weddingApi.sortWeddingDate, sort_flag);
@@ -45,7 +45,7 @@ function* watchSortWeddingDate() {
 function* saveBasicWedding(action) {
  try {
    const {wedding} = action;
-   console.log('Saving Wedding! ' + wedding);
+   //console.log('Saving Wedding! ' + wedding);
    yield put (ajaxActions.beginAjaxCall());
    const saveWedding = yield call(weddingApi.saveWedding, wedding);
    if(wedding.id){
@@ -54,7 +54,7 @@ function* saveBasicWedding(action) {
       yield put (actions.createWeddingSuccess(saveWedding));
    }
  } catch (error) {
-   console.log('erroror!!! ' + error);
+  // console.log('erroror!!! ' + error);
    yield put(actions.loadError(error));
  }
 }

@@ -19,6 +19,21 @@ class WeddingPage extends React.Component {
     this.onChangeWeddingDate=this.onChangeWeddingDate.bind(this);
   }
 
+
+
+  componentWillReceiveProps(nextProps){
+    if (JSON.stringify(this.props.weddings) !== JSON.stringify(nextProps.weddings) ){
+        this.setState({weddings: nextProps.weddings});
+    }
+  }
+
+  onChangeWeddingDate(event){
+    event.preventDefault();
+    const _sort_flag = !this.state.sort_flag;
+    this.props.actions.sortByWeddingDate(_sort_flag);
+    this.setState({sort_flag: _sort_flag});
+  }
+
   onChangeID(event){
     event.preventDefault();
     let _weddings = this.state.weddings;
@@ -29,23 +44,12 @@ class WeddingPage extends React.Component {
    if(_sort_flag2){
      _weddings=_weddings.reverse();
    }
-   console.log('hihi'+_weddings);
+   //console.log('hihi'+_weddings);
     this.setState({weddings: _weddings,
                   sort_flag2: _sort_flag2});
   }
 
-  onChangeWeddingDate(event){
-    event.preventDefault();
-    const _sort_flag = !this.state.sort_flag;
-    this.props.actions.sortByWeddingDate(_sort_flag);
-    this.setState({sort_flag: _sort_flag});
-  }
 
-  componentWillReceiveProps(nextProps){
-    if (JSON.stringify(this.props.weddings) !== JSON.stringify(nextProps.weddings) ){
-        this.setState({weddings: nextProps.weddings});
-    }
-  }
 
   redirecToAddWeddingPage(){
     browserHistory.push('/wedding');

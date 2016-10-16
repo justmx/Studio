@@ -68,5 +68,5 @@ export function loadWeddings() {
 //   };
 // }
 export function saveBasicWeddingInfo(wedding) {
-  return {type: types.WEDDING_SAVE_REQUESTED, wedding }
+  return {type: types.WEDDING_SAVE_REQUESTED, wedding };
 }

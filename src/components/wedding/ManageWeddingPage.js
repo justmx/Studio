@@ -31,19 +31,19 @@ export class ManageWeddingPage extends React.Component {
 
   updateWeddingState(event){
     const field = event.target.name;
-    console.log(field);
+    //console.log(field);
     let wedding = this.state.wedding;
     wedding[field] = event.target.value;
-    console.log(wedding);
+    //console.log(wedding);
     return this.setState({wedding: wedding});
   }
 
   updateWeddingDateState(mdate){
     const date = mdate.format('YYYY-MM-DD');
-    console.log(date);
+    //console.log(date);
     let wedding = this.state.wedding;
     wedding['weddingDate'] = date;
-    console.log(wedding);
+    //console.log(wedding);
     return this.setState({wedding: wedding,
       weddingDate:mdate
     });
@@ -117,7 +117,7 @@ function mapStateToProps(state, ownProps) {
   //debugger;
   let wedding = {id: '', groomName: "", brideName: "", weddingDate: "", length: "", serviceType: ""};
   let weddingmDate;
-  console.log('weddingmDate'+ weddingmDate);
+  //console.log('weddingmDate'+ weddingmDate);
   if(weddingId && state.weddings.length > 0){ // make sure we have the state
     wedding = getWeddingById(state.courses, weddingId);
   }
@@ -126,7 +126,7 @@ function mapStateToProps(state, ownProps) {
     weddingmDate = moment(wedding.weddingDate);
   }
 
-  var radioOptions=[{value: 'Photo',
+  let radioOptions=[{value: 'Photo',
   text: 'Photo'},
   {value: 'Video',
   text: 'Video'},
