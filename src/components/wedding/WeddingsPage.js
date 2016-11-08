@@ -19,8 +19,6 @@ class WeddingPage extends React.Component {
     this.onChangeWeddingDate=this.onChangeWeddingDate.bind(this);
   }
 
-
-
   componentWillReceiveProps(nextProps){
     if (JSON.stringify(this.props.weddings) !== JSON.stringify(nextProps.weddings) ){
         this.setState({weddings: nextProps.weddings});
@@ -44,7 +42,6 @@ class WeddingPage extends React.Component {
    if(_sort_flag2){
      _weddings=_weddings.reverse();
    }
-   //console.log('hihi'+_weddings);
     this.setState({weddings: _weddings,
                   sort_flag2: _sort_flag2});
   }
@@ -70,7 +67,6 @@ class WeddingPage extends React.Component {
 }
 
 WeddingPage.propTypes = {
-  //dispatch: PropTypes.func.isRequired,
   weddings: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
@@ -85,7 +81,6 @@ function mapStateToProps(state, ownProps) {
 //Approch 1:  , mapDispatchToProps if missing connect will inject a this.props.dispatch function
 function mapDispatchToProps(dispatch) {
   return {
-    //createCourse: course => dispatch(courseActions.createCourse(course));  Approch 2
     actions: bindActionCreators(weddingActions, dispatch) //Approch 3
   };
 }

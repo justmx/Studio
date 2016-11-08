@@ -26,7 +26,7 @@ const DatePickerInput = ({name, label, onChange, value, error}) => {
   DatePickerInput.propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     value: PropTypes.object,
     error: PropTypes.string
   };

@@ -31,19 +31,15 @@ export class ManageWeddingPage extends React.Component {
 
   updateWeddingState(event){
     const field = event.target.name;
-    //console.log(field);
     let wedding = this.state.wedding;
     wedding[field] = event.target.value;
-    //console.log(wedding);
     return this.setState({wedding: wedding});
   }
 
   updateWeddingDateState(mdate){
     const date = mdate.format('YYYY-MM-DD');
-    //console.log(date);
     let wedding = this.state.wedding;
     wedding['weddingDate'] = date;
-    //console.log(wedding);
     return this.setState({wedding: wedding,
       weddingDate:mdate
     });
@@ -61,7 +57,7 @@ export class ManageWeddingPage extends React.Component {
     let errors = {};
 
     if (this.state.wedding.groomName.length < 1){
-      errors.weddingDate = "Groom's Name must be entered.";
+      errors.groomName = "Groom's Name must be entered.";
       formIsValid = false;
     }
     this.setState({errors: errors});
@@ -96,7 +92,6 @@ export class ManageWeddingPage extends React.Component {
 }
 
 ManageWeddingPage.propTypes = {
-  //dispatch: PropTypes.func.isRequired,
    wedding: PropTypes.object.isRequired,
    actions: PropTypes.object.isRequired,
    weddingDate: PropTypes.object,
@@ -117,7 +112,6 @@ function mapStateToProps(state, ownProps) {
   //debugger;
   let wedding = {id: '', groomName: "", brideName: "", weddingDate: "", length: "", serviceType: ""};
   let weddingmDate;
-  //console.log('weddingmDate'+ weddingmDate);
   if(weddingId && state.weddings.length > 0){ // make sure we have the state
     wedding = getWeddingById(state.courses, weddingId);
   }
@@ -133,20 +127,10 @@ function mapStateToProps(state, ownProps) {
   {value: 'Photo & Video',
   text: 'Both'}];
 
-
-
-  // const authoresFormattedForDropdown = state.authors.map(author => {
-  //   return {
-  //     value: author.id,
-  //     text: author.firstName + ' ' + author.lastName
-  //   };
-  // });
-
   return {
     wedding: wedding,
     weddingDate: weddingmDate,
     radioOptions: radioOptions
-    //authors: authoresFormattedForDropdown
   };
 }
 

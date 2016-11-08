@@ -8,7 +8,7 @@ import RadioButtonInput from '../common/RadioButtonInput';
 const WeddingForm = ({wedding, onSave, onChange, saving, errors, onDateChange, weddingDate, radioOptions}) => {
   return (
     <form>
-      <h1>Manage Course</h1>
+      <h1>Manage Wedding</h1>
       <DatePickerInput
         name="weddingDate"
         label="Wedding Date"
@@ -28,7 +28,7 @@ const WeddingForm = ({wedding, onSave, onChange, saving, errors, onDateChange, w
           label="Bride' s Name"
           value={wedding.brideName}
           onChange={onChange}
-          error={errors.groomName}/>
+          error={errors.brideName}/>
 
       <TextInput
         name="length"
@@ -58,12 +58,12 @@ const WeddingForm = ({wedding, onSave, onChange, saving, errors, onDateChange, w
 WeddingForm.propTypes = {
   wedding: PropTypes.object.isRequired,
   onSave: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   saving: PropTypes.bool,
   errors: PropTypes.object,
-  onDateChange: PropTypes.func.isRequired,
+  onDateChange: PropTypes.func,
   weddingDate: PropTypes.object,
-  radioOptions: PropTypes.array.isRequired
+  radioOptions: PropTypes.array
 };
 
 export default WeddingForm;

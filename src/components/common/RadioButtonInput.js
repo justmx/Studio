@@ -25,7 +25,7 @@ RadioButtonInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object),
-  selected: PropTypes.string.isRequired
+  selected: PropTypes.string
 };
 
 export default RadioButtonInput;
