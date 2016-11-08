@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import {mount, shallow} from 'enzyme';
-import WeddingForm from './WeddingForm';
+import WeddingForm from '../components/wedding/WeddingForm';
 
 function setup(saving) {
   let props = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import {mount, shallow} from 'enzyme';
-import {ManageWeddingPage} from './ManageWeddingPage';
+import {ManageWeddingPage} from '../components/wedding/ManageWeddingPage';
 let moment = require('moment');
 
 describe('Manage Wedding Page', () => {

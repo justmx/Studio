@@ -1,5 +1,5 @@
 import expect from 'expect';
-import weddingReducer from './weddingReducer';
+import weddingReducer from '../reducers/weddingReducer';
 import * as actions from '../actions/weddingActions';
 
 
